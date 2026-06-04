@@ -34,3 +34,28 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Key File Structure
+
+app/
+  api/
+    upload/route.ts        ← parse, chunk, embed, store
+    chat/route.ts          ← RAG query + stream response
+  page.tsx                 ← main UI
+  chat/page.tsx            ← chat interface
+components/
+  FileUpload.tsx
+  ChatInterface.tsx
+  DocumentList.tsx
+lib/
+  supabase.ts
+  embeddings.ts            ← OpenAI embed util
+  chunker.ts               ← text splitting
+  rag.ts                   ← similarity search + context assembly
+
+## npm packages:
+
+* ai (Vercel AI SDK), openai
+* @supabase/supabase-js
+* pdf-parse, mammoth (DOCX), @types/pdf-parse
+* react-dropzone, react-markdown
